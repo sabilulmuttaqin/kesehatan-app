@@ -49,8 +49,7 @@ class SplashScreenView extends StatelessWidget {
                       double.infinity, 50), // Membuat tombol memanjang
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50, vertical: 15),
-                  backgroundColor: const Color.fromARGB(
-                      255, 53, 92, 54), // Warna hijau army
+                  backgroundColor:  Color(0xFF3C887E), // Warna hijau army
                 ),
                 child: const Text(
                   'Get Started',

@@ -9,7 +9,7 @@ const users = {
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
-  Duration get loginTime => const Duration(milliseconds: 2250);
+  Duration get loginTime => const Duration(milliseconds: 2000);
 
   Future<String?> _authUser(LoginData data) async {
     debugPrint('Name: ${data.name}, Password: ${data.password}');
@@ -61,7 +61,7 @@ class LoginView extends StatelessWidget {
           primaryColor: Colors.blue, // Warna utama
           accentColor: Colors.blueAccent, // Warna aksen
           buttonTheme: LoginButtonTheme(
-            backgroundColor: Colors.white, // Mengubah warna tombol menjadi putih
+            backgroundColor: Colors.blueAccent, // Mengubah warna tombol menjadi putih
             elevation: 0, // Menghilangkan bayangan tombol
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10), // Mengatur bentuk tombol

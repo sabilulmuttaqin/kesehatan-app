@@ -4,7 +4,6 @@ import '../../home/views/home_view.dart';
 
 const users = {
   'test@gmail.com': '12345',
-  'hunter@gmail.com': 'hunter',
 };
 
 class LoginView extends StatelessWidget {

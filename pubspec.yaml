@@ -38,6 +38,9 @@ dependencies:
   get: ^4.6.6
   multiple_splash_screens: ^0.0.4
   flutter_login: ^4.0.0
+  image_picker: ^0.8.5+3
+  shared_preferences: ^2.0.15
+  path_provider: ^2.0.11
 
 dev_dependencies:
   flutter_test:

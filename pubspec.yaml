@@ -69,6 +69,10 @@ flutter:
   assets:
     - assets/image/BUTTON KEMBALI.png
     - assets/image/LOGO LOGOUT.png
+    - assets/image/DARAH.png
+    - assets/image/TINGGI BADAN.png
+    - assets/image/UMUR.png
+    - assets/image/Rectangle 6.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

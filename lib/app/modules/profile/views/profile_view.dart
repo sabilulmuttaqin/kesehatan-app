@@ -38,10 +38,8 @@ class ProfileView extends GetView<ProfileController> {
 
           // Teks Profile dengan posisi yang dapat diatur
           Positioned(
-            top:
-                45, // Atur posisi top untuk menempatkan teks di atas foto profil
-            left: MediaQuery.of(context).size.width / 2 -
-                55, // Menghitung posisi tengah
+            top: 45, // Atur posisi top untuk menempatkan teks di atas foto profil
+            left: MediaQuery.of(context).size.width / 2 - 55, // Menghitung posisi tengah
             child: const Text(
               'Profile',
               style: TextStyle(
@@ -64,6 +62,7 @@ class ProfileView extends GetView<ProfileController> {
               },
             ),
           ),
+
           // Ikon Logout di sebelah kanan
           Positioned(
             top: 45,
@@ -92,10 +91,10 @@ class ProfileView extends GetView<ProfileController> {
               },
             ),
           ),
+
           // Foto profil dengan ikon
           Positioned(
-            top:
-                100, // Atur posisi top untuk menempatkan foto profil di bawah teks
+            top: 100, // Atur posisi top untuk menempatkan foto profil di bawah teks
             left: MediaQuery.of(context).size.width / 2 - 80,
             child: GestureDetector(
               onTap: () {
@@ -170,6 +169,7 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
           ),
+
           // Bagian username
           Positioned(
             top: 270,
@@ -208,12 +208,10 @@ class ProfileView extends GetView<ProfileController> {
                 },
                 child: Obx(() {
                   return Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
                       color: const Color(0xFF3C887E), // Warna latar belakang
-                      borderRadius:
-                          BorderRadius.circular(20), // Sudut melengkung
+                      borderRadius: BorderRadius.circular(20), // Sudut melengkung
                     ),
                     child: Text(
                       controller.username.value.isNotEmpty
@@ -230,6 +228,8 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
           ),
+
+          // Bagian Riwayat Kesehatan
           Positioned(
             top: 370,
             left: 16,
@@ -241,18 +241,18 @@ class ProfileView extends GetView<ProfileController> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF3C887E),
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Container(
                   width: 150,
-                  height: 4, //ketebalan garis
-                  color: const Color(0xFF3C887E),
-                )
+                  height: 4, // ketebalan garis
+                  color: const Color(0xFF3C887E), // warna hijau sesuai tema
+                ),
               ],
-            )
-          )
+            ),
+          ),
         ],
       ),
     );

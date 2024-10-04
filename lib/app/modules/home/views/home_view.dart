@@ -13,7 +13,7 @@ class HomeView extends GetView {
         preferredSize: const Size.fromHeight(80.0), // Tinggi AppBar disesuaikan
         child: AppBar(
           backgroundColor: Colors.teal,
-
+          automaticallyImplyLeading: false, // Remove the back button
           elevation: 4.0, // Menambahkan sedikit elevasi
           actions: [
             IconButton(
@@ -87,6 +87,8 @@ class HomeView extends GetView {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.teal,
+                      foregroundColor:
+                          Colors.white, // Mengubah warna tulisan jadi putih
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -266,6 +268,8 @@ class HomeView extends GetView {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
+                  foregroundColor:
+                      Colors.white, // Mengubah warna tulisan jadi putih
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),

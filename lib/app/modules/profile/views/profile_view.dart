@@ -230,6 +230,29 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
           ),
+          Positioned(
+            top: 370,
+            left: 16,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Riwayat Kesehatan',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF3C887E),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  width: 150,
+                  height: 4, //ketebalan garis
+                  color: const Color(0xFF3C887E),
+                )
+              ],
+            )
+          )
         ],
       ),
     );

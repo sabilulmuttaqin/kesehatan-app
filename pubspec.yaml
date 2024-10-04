@@ -73,6 +73,12 @@ flutter:
     - assets/image/TINGGI BADAN.png
     - assets/image/UMUR.png
     - assets/image/BERAT BADAN.png
+    - assets/image/login.jpg
+    - assets/image/OBESITAS.png
+    - assets/image/splashscreen.jpg
+    - assets/image/TBC.png
+    - assets/image/ASMA.png
+    - assets/image/DEMAM BERDARAH.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

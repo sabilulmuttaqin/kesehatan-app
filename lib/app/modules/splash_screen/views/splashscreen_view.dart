@@ -15,7 +15,7 @@ class SplashScreenView extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Image.asset(
-              'assets/images/logo.png',
+              'assets/image/splashscreen.jpg',
               fit: BoxFit.contain,
               width: 250,
               height: 250,
@@ -72,45 +72,47 @@ class SplashScreenView extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    OutlinedButton.icon(
-                      onPressed: () {
-                        Get.toNamed('/login');
-                      },
-                      icon: const Icon(Icons.account_circle_outlined,
-                          color: Color(0xFF39847A)),
-                      label: const Text(
-                        'Have an account?',
-                        style: TextStyle(
-                          color: Color(0xFF39847A),
-                        ),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: Color(0xFF39847A)),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                    SizedBox(
+                      width: 50, // Lebar tombol "Have an account?" menjadi kotak kecil
+                      child: OutlinedButton.icon(
+                        onPressed: () {
+                          Get.toNamed('/login');
+                        },
+                        icon: const Icon(Icons.account_circle_outlined,
+                            color: Color(0xFF39847A)),
+                        label: const SizedBox.shrink(), // Tidak ada label
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Color(0xFF39847A)),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 6),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                         ),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Get.toNamed('/register');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[300],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                    const SizedBox(width: 10), // Jarak antara kedua tombol
+                    SizedBox(
+                      width: 230, // Mengatur lebar tombol "Not have an account?" menjadi lebih panjang
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Get.toNamed('/register');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey[300],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 1),
                         ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 12),
-                      ),
-                      child: const Text(
-                        'Not have an account?',
-                        style: TextStyle(
-                          color: Colors.grey,
+                        child: const Text(
+                          'Not have an account?',
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                     ),

@@ -38,13 +38,13 @@ class ProfileView extends GetView<ProfileController> {
 
           // Teks Profile dengan posisi yang dapat diatur
           Positioned(
-            top: 45,
-            left: MediaQuery.of(context).size.width / 2 - 55,
+            top: 60,
+            left: MediaQuery.of(context).size.width / 2 - 45,
             child: const Text(
               'Profile',
               style: TextStyle(
                 fontFamily: 'Poppins',
-                fontSize: 35,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -94,8 +94,8 @@ class ProfileView extends GetView<ProfileController> {
 
           // Foto profil dengan ikon
           Positioned(
-            top: 100,
-            left: MediaQuery.of(context).size.width / 2 - 80,
+            top: 115,
+            left: MediaQuery.of(context).size.width / 2 - 60,
             child: GestureDetector(
               onTap: () {
                 Get.bottomSheet(
@@ -149,7 +149,7 @@ class ProfileView extends GetView<ProfileController> {
                     alignment: Alignment.center,
                     children: [
                       CircleAvatar(
-                        radius: 80,
+                        radius: 65,
                         backgroundImage: controller.profileImage.value != null
                             ? FileImage(controller.profileImage.value!)
                             : const AssetImage('assets/default_profile.png')
@@ -159,7 +159,7 @@ class ProfileView extends GetView<ProfileController> {
                       if (controller.profileImage.value == null) ...[
                         const Icon(
                           Icons.person,
-                          size: 40,
+                          size: 30,
                           color: Colors.white,
                         ),
                       ],
@@ -172,7 +172,7 @@ class ProfileView extends GetView<ProfileController> {
 
           // Bagian username
           Positioned(
-            top: 270,
+            top: 265,
             left: 0,
             right: 0,
             child: Center(
@@ -220,7 +220,7 @@ class ProfileView extends GetView<ProfileController> {
                           ? controller.username.value
                           : 'Username',
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.white, // Warna teks
                       ),
@@ -255,163 +255,261 @@ class ProfileView extends GetView<ProfileController> {
               ],
             ),
           ),
-          // Lingkaran untuk Gambar Riwayat Kesehatan
           Positioned(
             top: 400,
             left: 16,
             right: 16,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: List.generate(4, (index) {
-                // Daftar gambar yang ingin digunakan
-                final List<String> imageAssets = [
-                  'assets/image/TINGGI BADAN.png', // Gambar untuk lingkaran pertama
-                  'assets/image/BERAT BADAN.png', // Gambar untuk lingkaran kedua
-                  'assets/image/UMUR.png', // Gambar untuk lingkaran ketiga
-                  'assets/image/DARAH.png', // Gambar untuk lingkaran keempat
-                ];
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: List.generate(4, (index) {
+                    // Daftar gambar yang ingin digunakan
+                    final List<String> imageAssets = [
+                      'assets/image/TINGGI BADAN.png', // Gambar untuk lingkaran pertama
+                      'assets/image/BERAT BADAN.png', // Gambar untuk lingkaran kedua
+                      'assets/image/UMUR.png', // Gambar untuk lingkaran ketiga
+                      'assets/image/DARAH.png', // Gambar untuk lingkaran keempat
+                    ];
 
-                final List<double> imageSizes = [
-                  40.0, // Ukuran untuk gambar pertama
-                  50.0, // Ukuran untuk gambar kedua
-                  37.0, // Ukuran untuk gambar ketiga
-                  45.0, // Ukuran untuk gambar keempat
-                ];
+                    final List<double> imageSizes = [
+                      40.0, // Ukuran untuk gambar pertama
+                      50.0, // Ukuran untuk gambar kedua
+                      37.0, // Ukuran untuk gambar ketiga
+                      45.0, // Ukuran untuk gambar keempat
+                    ];
 
-                // Daftar teks yang ingin ditampilkan di bawah gambar
-                final List<String> labels = [
-                  'Height', // Teks untuk lingkaran pertama
-                  'Weight', // Teks untuk lingkaran kedua
-                  'Age', // Teks untuk lingkaran ketiga
-                  'Blood Type', // Teks untuk lingkaran keempat
-                ];
+                    // Daftar teks yang ingin ditampilkan di bawah gambar
+                    final List<String> labels = [
+                      'Height', // Teks untuk lingkaran pertama
+                      'Weight', // Teks untuk lingkaran kedua
+                      'Age', // Teks untuk lingkaran ketiga
+                      'Blood Type', // Teks untuk lingkaran keempat
+                    ];
 
-                final List<String> units = [
-                  'cm', // Satuan untuk tinggi
-                  'kg', // Satuan untuk berat
-                  '', // Tidak ada satuan untuk umur
-                  '', // Tidak ada satuan untuk golongan darah
-                ];
+                    // Mengambil nilai dari controller atau nilai default
+                    final List<String> values = [
+                      '190', // Tinggi badan dalam cm
+                      '60', // Berat badan dalam kg
+                      '29', // Umur
+                      'A', // Golongan darah
+                    ];
 
-                // Mengambil nilai dari controller
-                final List<String> values = [
-                  '${controller.height.value}', // Mengambil nilai dari controller (int to String)
-                  '${controller.weight.value}', // Mengambil nilai dari controller (int to String)
-                  '${controller.age.value}', // Mengambil nilai dari controller (int to String)
-                  '${controller.bloodType.value}', // Mengambil nilai dari controller (String)
-                ];
+                    // Mengambil satuan yang sesuai untuk setiap atribut
+                    final List<String> units = [
+                      'cm', // Satuan untuk tinggi
+                      'kg', // Satuan untuk berat
+                      '', // Tidak ada satuan untuk umur
+                      '', // Tidak ada satuan untuk golongan darah
+                    ];
 
-                final imageAsset =
-                    imageAssets[index]; // Mengambil gambar sesuai index
-                final double imageSize =
-                    imageSizes[index]; // Mengambil ukuran sesuai index
-                final String label = labels[index];
-                final String unit =
-                    units[index]; // Mengambil satuan sesuai index
-                final String value =
-                    values[index]; // Mengambil teks sesuai index
+                    // Mengambil gambar dan ukuran sesuai index
+                    final imageAsset = imageAssets[index];
+                    final double imageSize = imageSizes[index];
+                    final String label = labels[index];
+                    final String value = values[index];
+                    final String unit = units[index];
 
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () async {
-                        // Tampilkan dialog untuk input nilai baru
-                        String? newValue = await showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            TextEditingController textController =
-                                TextEditingController();
-                            return AlertDialog(
-                              title: Text('Input ${label}'),
-                              content: TextField(
-                                controller: textController,
-                                decoration: InputDecoration(
-                                    hintText: 'Enter new value'),
-                                keyboardType: index < 3
-                                    ? TextInputType
-                                        .number // Ganti keyboard untuk Height, Weight, dan Age
-                                    : TextInputType
-                                        .text, // Ganti keyboard untuk Blood Type
-                              ),
-                              actions: [
-                                TextButton(
-                                  child: const Text('OK'),
-                                  onPressed: () {
-                                    Navigator.of(context)
-                                        .pop(textController.text);
-                                  },
-                                ),
-                              ],
-                            );
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            // Aksi ketika lingkaran ditekan (jika perlu)
+                            // Contoh: controller.updateHealthData(label, newValue);
                           },
-                        );
-
-                        if (newValue != null && newValue.isNotEmpty) {
-                          // Memperbarui nilai di controller
-                          if (index < 3) {
-                            // Jika input adalah untuk Height, Weight, atau Age
-                            controller.updateHealthData(
-                                label,
-                                int.parse(newValue)
-                                    .toString()); // Konversi String ke int
-                          } else {
-                            // Jika input adalah untuk Blood Type
-                            controller.updateHealthData(
-                                label, newValue); // Tetap sebagai String
-                          }
-
-                          // Simpan profil setelah memperbarui nilai
-                          await controller
-                              .saveProfile(); // Pastikan data disimpan di SharedPreferences
-                        }
-                      },
-                      child: Container(
-                        width: 60.0, // Ukuran lingkaran hijau tetap
-                        height: 60.0, // Ukuran lingkaran hijau tetap
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(
-                              0xFFDEF2EF), // Warna latar belakang lingkaran
-                        ),
-                        child: ClipOval(
                           child: Container(
-                            width: 60.0, // Ukuran lingkaran tetap
-                            height: 60.0, // Ukuran lingkaran tetap
-                            alignment:
-                                Alignment.center, // Memastikan gambar terpusat
-                            color: Colors.transparent,
-                            child: Image.asset(
-                              imageAsset,
-                              fit: BoxFit.cover,
-                              width: imageSize, // Menentukan ukuran gambar
-                              height: imageSize, // Menentukan ukuran gambar
+                            width: 60.0, // Ukuran lingkaran hijau tetap
+                            height: 60.0, // Ukuran lingkaran hijau tetap
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(
+                                  0xFFDEF2EF), // Warna latar belakang lingkaran
+                            ),
+                            child: ClipOval(
+                              child: Container(
+                                width: 60.0, // Ukuran lingkaran tetap
+                                height: 60.0, // Ukuran lingkaran tetap
+                                alignment: Alignment
+                                    .center, // Memastikan gambar terpusat
+                                color: Colors.transparent,
+                                child: Image.asset(
+                                  imageAsset,
+                                  fit: BoxFit.cover,
+                                  width: imageSize, // Menentukan ukuran gambar
+                                  height: imageSize, // Menentukan ukuran gambar
+                                ),
+                              ),
                             ),
                           ),
                         ),
+                        const SizedBox(
+                            height: 8), // Jarak antara gambar dan teks
+                        Text(
+                          label,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          unit.isNotEmpty
+                              ? '$value $unit'
+                              : value, // Menampilkan teks untuk nilai dengan satuan
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Color.fromARGB(
+                                255, 87, 85, 85), // Warna untuk nilai
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+                ),
+                const SizedBox(height: 8), // Jarak sebelum garis
+                // Garis pemisah memanjang ke samping
+                Container(
+                  height: 5, // Tinggi garis
+                  width: double.infinity, // Lebar garis (memanjang penuh)
+                  color: Colors.grey[300], // Warna garis abu-abu
+                ),
+                const SizedBox(
+                    height: 16), // Jarak sebelum teks Riwayat Penyakit
+                // Teks Riwayat Penyakit
+              ],
+            ),
+          ),
+
+          Positioned(
+            top: 540,
+            left: 30,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Riwayat Penyakit',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  width: 150,
+                  height: 4, // ketebalan garis
+                  color: const Color(0xFF3C887E), // warna hijau sesuai tema
+                ),
+                const SizedBox(height: 8), // Jarak antara garis dan lingkaran
+                Row(
+                  mainAxisAlignment: MainAxisAlignment
+                      .spaceAround, // Mengatur posisi lingkaran
+                  children: List.generate(4, (index) {
+                    // Daftar gambar yang ingin digunakan
+                    final List<String> imageAssets = [
+                      'assets/image/TBC.png', // Gambar untuk lingkaran pertama
+                      'assets/image/DEMAM BERDARAH.png', // Gambar untuk lingkaran kedua
+                      'assets/image/ASMA.png', // Gambar untuk lingkaran ketiga
+                      'assets/image/OBESITAS.png', // Gambar untuk lingkaran keempat
+                    ];
+
+                    final List<double> imageSizes = [
+                      35.0, // Ukuran untuk gambar pertama
+                      38.0, // Ukuran untuk gambar kedua
+                      35.0, // Ukuran untuk gambar ketiga
+                      38.0, // Ukuran untuk gambar keempat
+                    ];
+
+                    // Daftar teks yang ingin ditampilkan di bawah gambar
+                    final List<String> labels = [
+                      'TBC', // Teks untuk lingkaran pertama
+                      'DBD', // Teks untuk lingkaran kedua
+                      'Asma', // Teks untuk lingkaran ketiga
+                      'Obesitas', // Teks untuk lingkaran keempat
+                    ];
+
+                    final imageAsset =
+                        imageAssets[index]; // Mengambil gambar sesuai index
+                    final double imageSize = imageSizes[
+                        index]; // Mengambil ukuran gambar sesuai index
+                    final String label =
+                        labels[index]; // Mengambil teks sesuai index
+
+                    return Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(
+                              horizontal:
+                                  8.0), // Jarak horizontal antar lingkaran
+                          width: 60.0, // Ukuran lingkaran
+                          height: 60.0, // Ukuran lingkaran
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(
+                                0xFFDEF2EF), // Warna latar belakang lingkaran
+                          ),
+                          child: ClipOval(
+                            child: Container(
+                              width: 60.0, // Ukuran lingkaran
+                              height: 60.0, // Ukuran lingkaran
+                              alignment: Alignment
+                                  .center, // Memastikan gambar terpusat
+                              color: Colors.transparent,
+                              child: Image.asset(
+                                imageAsset, // Menggunakan gambar dari daftar
+                                fit: BoxFit.cover,
+                                width:
+                                    imageSize, // Menentukan ukuran gambar sesuai index
+                                height:
+                                    imageSize, // Menentukan ukuran gambar sesuai index
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                            height: 4), // Jarak antara gambar dan teks
+                        Text(
+                          label,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight:
+                                FontWeight.bold, // Mengatur teks menjadi tebal
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+                ),
+                const SizedBox(
+                    height: 16), // Jarak antara lingkaran dan teks "Lainnya"
+                Container(
+                  // Menggunakan Container untuk mengatur posisi "Lainnya"
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 115), // Mengatur jarak kiri dan kanan
+                  child: const Row(
+                    mainAxisSize: MainAxisSize
+                        .min, // Menggunakan ukuran minimum agar Row tidak memenuhi ruang
+                    mainAxisAlignment: MainAxisAlignment
+                        .center, // Mengatur posisi Row di tengah
+                    children: [
+                      Text(
+                        'Lainnya',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF3C887E), // Warna hijau
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8), // Jarak antara gambar dan teks
-                    Text(
-                      label,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
+                      SizedBox(width: 4), // Jarak antara teks dan ikon
+                      Icon(
+                        Icons.keyboard_arrow_down, // Ikon panah bawah
+                        color: Color(0xFF3C887E), // Warna hijau
                       ),
-                    ),
-                    Text(
-                      unit.isNotEmpty
-                          ? '$value $unit'
-                          : value, // Menampilkan teks untuk nilai dengan satuan
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(
-                            255, 87, 85, 85), // Warna untuk nilai
-                      ),
-                    ),
-                  ],
-                );
-              }),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],

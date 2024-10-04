@@ -12,4 +12,5 @@ abstract class _Paths {
   static const SPLASH_SCREEN = '/splash-screen';
   static const LOGIN = '/login';
   static const PROFILE = '/profile';
+
 }

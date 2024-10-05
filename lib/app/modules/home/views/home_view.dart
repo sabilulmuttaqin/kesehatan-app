@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_controller.dart';
 import '../../profile/views/profile_view.dart'; // Import ProfileView
 
 class HomeView extends GetView {
@@ -10,7 +9,7 @@ class HomeView extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0), // Tinggi AppBar disesuaikan
+        preferredSize: const Size.fromHeight(60.0), // Tinggi AppBar disesuaikan
         child: AppBar(
           backgroundColor: Colors.teal,
           automaticallyImplyLeading: false, // Remove the back button
@@ -54,12 +53,12 @@ class HomeView extends GetView {
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: 30,
+                    radius: 25,
                     backgroundColor: Colors.teal.withOpacity(0.2),
                     child: const Icon(
                       Icons.person,
                       color: Colors.teal,
-                      size: 30,
+                      size: 25,
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -68,14 +67,14 @@ class HomeView extends GetView {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'My Doctor',
+                          'User',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          'Mr. Icikiwir',
+                          'Role',
                           style: TextStyle(fontSize: 14, color: Colors.grey),
                         ),
                       ],
@@ -93,7 +92,7 @@ class HomeView extends GetView {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: const Text('Doctor'),
+                    child: const Text('Get started'),
                   ),
                 ],
               ),
@@ -144,16 +143,16 @@ class HomeView extends GetView {
             const SizedBox(height: 16),
             // Popular Doctors List
             _buildDoctorCard('Dr. Noah', 'St. Gregory\'s Medical', 4.5,
-                'assets/images/dr_noah.jpg'),
+                'assets/image/doctor2.jpg'),
             const SizedBox(height: 16),
             _buildDoctorCard('Dr. Maria', 'St. Female Medical', 4.3,
-                'assets/images/dr_maria.jpg'),
+                'assets/image/doctor1.jpg'),
             const SizedBox(height: 16),
             _buildDoctorCard('Dr. Maria', 'St. Female Medical', 4.3,
-                'assets/images/dr_maria.jpg'),
+                'assets/image/doctor2.jpg'),
             const SizedBox(height: 16),
             _buildDoctorCard('Dr. Maria', 'St. Female Medical', 4.3,
-                'assets/images/dr_maria.jpg'),
+                'assets/image/doctor1.jpg'),
           ],
         ),
       ),
